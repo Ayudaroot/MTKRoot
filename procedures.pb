@@ -1,4 +1,4 @@
-Procedure UnZip(zipfile.s)
+﻿Procedure UnZip(zipfile.s)
   
   Define Folder.s,NewFolder.s
   
@@ -104,11 +104,11 @@ EndIf
 EndProcedure
 
 ; --- Declaración de imágenes ---
-Global Dim Images.i(28)  ; Índices 0-28
+Global Dim Images.i(30)  ; Índices 0-28
 ; --- Carga optimizada de imágenes ---
 Procedure LoadImages()
   ; Carga todas las imágenes usando un array global Images()
-  For i = 0 To 28
+  For i = 0 To 30
     Select i
       Case 0
         Images(i) = CatchImage(i, ?Image0)
@@ -150,10 +150,14 @@ Procedure LoadImages()
         Images(i) = CatchImage(i, ?Image27)
       Case 28
         Images(i) = CatchImage(i, ?Image28)
+      Case 29
+        Images(i) = CatchImage(i, ?Image29)
+              Case 30
+        Images(i) = CatchImage(i, ?Image30)
     EndSelect
     
     ; Verificación de carga (excepto índices no usados como 24)
-    If Not Images(i) And i <> 2 And i <> 3 And i <> 4 And i <> 5 And i <> 6 And i <> 7 And i <> 8 And i <> 9 And i <> 24 And i < 29
+    If Not Images(i) And i <> 2 And i <> 3 And i <> 4 And i <> 5 And i <> 6 And i <> 7 And i <> 8 And i <> 9 And i <> 24 And i < 31
       Debug "[Error] Fallo al cargar imagen índice " + Str(i)
     EndIf
   Next
@@ -186,3 +190,8 @@ Procedure ShowProgressWindow()
         CloseWindow(3)
     EndIf
 EndProcedure
+; IDE Options = PureBasic 5.72 (Windows - x64)
+; CursorPosition = 106
+; FirstLine = 47
+; Folding = x-
+; EnableXP
